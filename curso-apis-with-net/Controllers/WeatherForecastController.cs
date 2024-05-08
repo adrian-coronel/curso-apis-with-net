@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace curso_apis_with_net.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -19,7 +19,6 @@ namespace curso_apis_with_net.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        [Route("[action]")] // utiliza el nombre del metodo, para definir la ruta -> /Get
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

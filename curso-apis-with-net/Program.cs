@@ -1,4 +1,6 @@
 // Crea un constructor de aplicaciones web con la configuración inicial
+using curso_apis_with_net.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Agrega los servicios necesarios al contenedor de inyección de dependencias
@@ -17,7 +19,11 @@ if (app.Environment.IsDevelopment()) // Verifica si la aplicación está en modo d
 }
 
 app.UseHttpsRedirection(); // Redirige el tráfico HTTP a HTTPS
+
 app.UseAuthorization(); // Habilita la autorización en la aplicación
+
+app.UseTimeMiddleware();
+
 app.MapControllers(); // Mapea los controladores para procesar las solicitudes
 
 // Ejecuta la aplicación

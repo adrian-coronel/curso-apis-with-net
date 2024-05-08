@@ -1,3 +1,4 @@
+using curso_apis_with_net.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace curso_apis_with_net.Controllers

@@ -1,4 +1,4 @@
-namespace curso_apis_with_net
+namespace curso_apis_with_net.Models
 {
     public class WeatherForecast
     {

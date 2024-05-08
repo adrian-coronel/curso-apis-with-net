@@ -1,4 +1,4 @@
-﻿namespace curso_apis_with_net.Services
+﻿namespace curso_apis_with_net.Services.Implements
 {
     public class HelloWorldService : IHelloWorldService
     {

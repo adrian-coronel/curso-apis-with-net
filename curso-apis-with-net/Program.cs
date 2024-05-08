@@ -1,5 +1,6 @@
 // Crea un constructor de aplicaciones web con la configuración inicial
 using curso_apis_with_net.Middleware;
+using curso_apis_with_net.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(); // Agrega el servicio para controladores MVC
 builder.Services.AddEndpointsApiExplorer(); // Agrega el servicio para la exploración de puntos finales de la API
 builder.Services.AddSwaggerGen(); // Agrega el servicio para la generación de Swagger/OpenAPI
+
+
+// Implementamos las inyecciones de dependencias
+builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
+//builder.Services.AddScoped<IHelloWorldService>(hw => new HelloWorldService());
+
 
 // Construye la aplicación con la configuración proporcionada
 var app = builder.Build();
@@ -22,7 +29,7 @@ app.UseHttpsRedirection(); // Redirige el tráfico HTTP a HTTPS
 
 app.UseAuthorization(); // Habilita la autorización en la aplicación
 
-app.UseTimeMiddleware();
+//app.UseTimeMiddleware(); // Middleware Personalizado
 
 app.MapControllers(); // Mapea los controladores para procesar las solicitudes
 
